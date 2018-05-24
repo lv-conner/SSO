@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2018
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSO.Web", "SSO.Web\SSO.Web.csproj", "{611CE974-22FC-45FF-B31B-3DA1E8AC0889}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSO.WebClient", "SSO.WebClient\SSO.WebClient.csproj", "{BA03F2AB-846E-4566-B924-06589AE0447A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{611CE974-22FC-45FF-B31B-3DA1E8AC0889}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{611CE974-22FC-45FF-B31B-3DA1E8AC0889}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{611CE974-22FC-45FF-B31B-3DA1E8AC0889}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA03F2AB-846E-4566-B924-06589AE0447A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA03F2AB-846E-4566-B924-06589AE0447A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA03F2AB-846E-4566-B924-06589AE0447A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA03F2AB-846E-4566-B924-06589AE0447A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

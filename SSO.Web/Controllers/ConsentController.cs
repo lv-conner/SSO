@@ -18,7 +18,12 @@ namespace SSO.Web.Controllers
         public async Task<IActionResult> Index(string returnUrl)
         {
             var request = await _interaction.GetAuthorizationContextAsync(returnUrl);
-            ConsentResponse response = new ConsentResponse();
+            ConsentResponse response = new ConsentResponse()
+            {
+                RememberConsent = true,
+                ScopesConsented = request.ScopesRequested
+            };
+            await _interaction.GrantConsentAsync(request, response);
             return Redirect(returnUrl);
         }
     }

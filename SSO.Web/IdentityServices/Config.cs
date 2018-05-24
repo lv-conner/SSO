@@ -15,7 +15,7 @@ namespace QuickstartIdentityServer
     {
         public static RsaSecurityKey GetRsaSecurityKey()
         {
-            var key = new RsaSecurityKey(new RSACryptoServiceProvider());
+            var key = new RsaSecurityKey(new RSACryptoServiceProvider(2048));
             return key;
         }
         // scopes define the resources in your system
@@ -80,8 +80,8 @@ namespace QuickstartIdentityServer
                     ClientName = "MVC Client",
                     AllowedGrantTypes = GrantTypes.Implicit,
                     RequireConsent = true,
-                    RedirectUris = { "http://localhost:5002/signin-oidc" },
-                    PostLogoutRedirectUris = { "http://localhost:5002/signout-callback-oidc" },
+                    RedirectUris = { "http://localhost:5804/signin-oidc" },
+                    PostLogoutRedirectUris = { "http://localhost:5804/signout-callback-oidc" },
                     AllowAccessTokensViaBrowser = true,
                     AllowedScopes =
                     {

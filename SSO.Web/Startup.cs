@@ -35,6 +35,7 @@ namespace SSO.Web
             .AddProfileService<CustomerProfileService>();
 
             services.AddSingleton(Config.GetApiResources());
+            //需要注意配置的客户端的RedirectUrl要与客户端Url一致，否则会被视为UnAuthorizedClient。
             services.AddSingleton(Config.GetClients());
             services.AddSingleton(Config.GetIdentityResources());
             services.AddSingleton(Config.GetUsers());
