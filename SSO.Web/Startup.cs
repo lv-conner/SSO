@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using IdentityServer4.Stores;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using QuickstartIdentityServer;
 using QuickstartIdentityServer.CustomerChange;
+using SSO.Web.IdentityServices;
 
 namespace SSO.Web
 {
@@ -23,23 +25,29 @@ namespace SSO.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //配置IdentityServer4
             services.AddIdentityServer(options =>
             {
+                //配置用户交换
                 options.UserInteraction.LoginUrl = "/Account/Login";
                 options.UserInteraction.LogoutUrl = "/Account/Logout";
                 options.UserInteraction.ConsentUrl = "/Consent";
             })
+            //添加Rsa密钥，密钥长度需要大于等于2048
             .AddSigningCredential(Config.GetRsaSecurityKey())
+            //添加资源存储
             .AddResourceStore<CustomerSourceStore>()
+            //添加客户端存储
             .AddClientStore<FileClientStore>()
+            //添加信息提供服务
             .AddProfileService<CustomerProfileService>();
-
+            //替换默认的内存持久化
+            //services.AddSingleton<IPersistedGrantStore，CustomerPersistGrant>();
             services.AddSingleton(Config.GetApiResources());
             //需要注意配置的客户端的RedirectUrl要与客户端Url一致，否则会被视为UnAuthorizedClient。
             services.AddSingleton(Config.GetClients());
             services.AddSingleton(Config.GetIdentityResources());
             services.AddSingleton(Config.GetUsers());
-
             services.AddMvc();
         }
 
