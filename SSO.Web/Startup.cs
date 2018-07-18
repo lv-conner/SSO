@@ -28,10 +28,12 @@ namespace SSO.Web
             //配置IdentityServer4
             services.AddIdentityServer(options =>
             {
-                //配置用户交换
+                //配置用户登陆Url
                 options.UserInteraction.LoginUrl = "/Account/Login";
+                //配置用户登出Url
                 options.UserInteraction.LogoutUrl = "/Account/Logout";
-                options.UserInteraction.ConsentUrl = "/Consent";
+                //当需要授权是跳转到哪一个页面进行授权。
+                options.UserInteraction.ConsentUrl = "/Consent/Index";
             })
             //添加Rsa密钥，密钥长度需要大于等于2048
             .AddSigningCredential(Config.GetRsaSecurityKey())

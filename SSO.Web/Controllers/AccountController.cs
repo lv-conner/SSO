@@ -6,6 +6,8 @@ using IdentityServer4;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
+using SSO.Web.Models;
+
 namespace SSO.Web.Controllers
 {
     public class AccountController : Controller
@@ -16,7 +18,12 @@ namespace SSO.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Login(string returnUrl)
+        public IActionResult Login(string returnUrl)
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginDto model, string returnUrl)
         {
             ClaimsIdentity claimsIdentity = new ClaimsIdentity("IdentityServerConstants.DefaultCookieAuthenticationScheme");
             claimsIdentity.AddClaim(new Claim(ClaimTypes.Name, "tim"));
@@ -25,7 +32,14 @@ namespace SSO.Web.Controllers
             claimsIdentity.AddClaim(new Claim("sub", "001tim"));
             ClaimsPrincipal user = new ClaimsPrincipal(claimsIdentity);
             await HttpContext.SignInAsync(IdentityServerConstants.DefaultCookieAuthenticationScheme, user);
-            return Redirect(returnUrl);
+            if (string.IsNullOrEmpty(returnUrl))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return Redirect(returnUrl);
+            }
         }
     }
 }
