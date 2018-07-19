@@ -14,18 +14,26 @@ namespace SSO.Context
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=PRCNMG1L0311;initial catalog=SSOContext;user Id=sa;password=Root@admin");
+            //optionsBuilder.UseSqlServer("Data Source=PRCNMG1L0311;initial catalog=SSOContext;user Id=sa;password=Root@admin");
+            //optionsBuilder.UseSqlServer("Data Source=lv;initial catalog=SSOContext;user Id=sa;password=root");
             base.OnConfiguring(optionsBuilder);
         }
         public DbSet<Person> Persons { get; set; }
         public DbSet<ApiResource> APIResources { get; set; }
         public DbSet<IdentityResource> ApiResource { get; set; }
+        public DbSet<Client> Clients { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<IdentityResource>().Ignore(p => p.UserClaims).HasKey(p => p.Name);
             modelBuilder.Entity<ApiResource>().Ignore(p => p.UserClaims).HasKey(p => p.Name);
             modelBuilder.Entity<Scope>().Ignore(p => p.UserClaims).HasKey(p => p.Name);
             modelBuilder.Entity<Secret>().HasKey(p => p.Value);
+            modelBuilder.Entity<Client>().HasKey(p => p.ClientId);
+            modelBuilder.Entity<Client>().Ignore(p => p.AllowedCorsOrigins).Ignore(p => p.AllowedGrantTypes)
+                .Ignore(p => p.AllowedScopes).Ignore(p => p.Claims).Ignore(p => p.ClientSecrets).Ignore(p => p.RedirectUris)
+                .Ignore(p=>p.PostLogoutRedirectUris).Ignore(p=>p.IdentityProviderRestrictions).Ignore(p=>p.Properties)
+                
+                ;
             base.OnModelCreating(modelBuilder);
         }
     }
