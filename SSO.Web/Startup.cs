@@ -40,7 +40,7 @@ namespace SSO.Web
             //添加资源存储
             .AddResourceStore<CustomerSourceStore>()
             //添加客户端存储
-            .AddClientStore<FileClientStore>()
+            .AddClientStore<JsonClientStore>()
             //添加用户信息提供服务
             .AddProfileService<CustomerProfileService>();
             //替换默认的内存持久化

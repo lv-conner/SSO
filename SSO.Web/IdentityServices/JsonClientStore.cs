@@ -1,5 +1,7 @@
 ﻿using IdentityServer4.Models;
 using IdentityServer4.Stores;
+using Microsoft.Extensions.Options;
+using SSO.Web.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace QuickstartIdentityServer.CustomerChange
 {
-    public class FileClientStore : IClientStore
+    public class JsonClientStore : IClientStore
     {
         private readonly IEnumerable<Client> _clients;
-        public FileClientStore(IEnumerable<Client> clients)
+        public JsonClientStore(IEnumerable<Client> clients, IOptionsMonitor<JsonClientOptions> options)
         {
             _clients = clients;
         }
@@ -19,12 +21,5 @@ namespace QuickstartIdentityServer.CustomerChange
             return Task.FromResult(_clients.FirstOrDefault(p => p.ClientId == clientId));
         }
     }
-    public class FileClientStoreOptions
-    {
-        public FileClientStoreOptions()
-        {
 
-        }
-        public string FileName { get; set; }
-    }
 }
