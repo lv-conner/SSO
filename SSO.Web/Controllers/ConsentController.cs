@@ -10,6 +10,7 @@ using SSO.Web.Models;
 
 namespace SSO.Web.Controllers
 {
+    //purpose：根据Client请求的相关信息(ClientId,ClientScrect,Scopes)构建授权信息。
     public class ConsentController : Controller
     {
         private readonly IIdentityServerInteractionService _interaction;

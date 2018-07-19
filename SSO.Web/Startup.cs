@@ -35,20 +35,22 @@ namespace SSO.Web
                 //当需要授权是跳转到哪一个页面进行授权。
                 options.UserInteraction.ConsentUrl = "/Consent/Index";
             })
-            //添加Rsa密钥，密钥长度需要大于等于2048
+            //添加Rsa密钥，密钥长度需要大于等于2048，此处配置加密Token的密钥
             .AddSigningCredential(Config.GetRsaSecurityKey())
             //添加资源存储
             .AddResourceStore<CustomerSourceStore>()
             //添加客户端存储
             .AddClientStore<FileClientStore>()
-            //添加信息提供服务
+            //添加用户信息提供服务
             .AddProfileService<CustomerProfileService>();
             //替换默认的内存持久化
             //services.AddSingleton<IPersistedGrantStore，CustomerPersistGrant>();
             services.AddSingleton(Config.GetApiResources());
             //需要注意配置的客户端的RedirectUrl要与客户端Url一致，否则会被视为UnAuthorizedClient。
             services.AddSingleton(Config.GetClients());
+            //配置身份识别资源
             services.AddSingleton(Config.GetIdentityResources());
+            //配置用户
             services.AddSingleton(Config.GetUsers());
             services.AddMvc();
         }
