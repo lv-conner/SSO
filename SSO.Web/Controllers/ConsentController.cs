@@ -5,11 +5,13 @@ using System.Threading.Tasks;
 using IdentityServer4.Models;
 using IdentityServer4.Services;
 using IdentityServer4.Stores;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SSO.Web.Models;
 
 namespace SSO.Web.Controllers
 {
+    [Authorize]
     //purpose：根据Client请求的相关信息(ClientId,ClientScrect,Scopes)构建授权信息。
     public class ConsentController : Controller
     {

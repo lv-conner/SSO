@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace QuickstartIdentityServer.CustomerChange
 {
-    public class JsonClientStore : IClientStore
+    public class CustomerClientStore : IClientStore
     {
         private readonly IEnumerable<Client> _clients;
-        public JsonClientStore(IEnumerable<Client> clients, IOptionsMonitor<JsonClientOptions> options)
+        public CustomerClientStore(IEnumerable<Client> clients, IOptionsMonitor<JsonClientOptions> options)
         {
             _clients = clients;
         }
