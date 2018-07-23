@@ -7,13 +7,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSO.Web", "SSO.Web\SSO.Web.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSO.WebClient", "SSO.WebClient\SSO.WebClient.csproj", "{BA03F2AB-846E-4566-B924-06589AE0447A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSO.Repository", "SSO.Repository\SSO.Repository.csproj", "{4A28C078-23C0-4F6D-AB87-E62F5FC3778B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSO.Repository", "SSO.Repository\SSO.Repository.csproj", "{4A28C078-23C0-4F6D-AB87-E62F5FC3778B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSO.IRepository", "SSO.IRepository\SSO.IRepository.csproj", "{3851FA20-9A67-411B-9889-59698D550DA3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSO.IRepository", "SSO.IRepository\SSO.IRepository.csproj", "{3851FA20-9A67-411B-9889-59698D550DA3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSO.Context", "SSO.Context\SSO.Context.csproj", "{2DB48B6E-D691-4D1D-A9FB-48255C499149}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSO.Context", "SSO.Context\SSO.Context.csproj", "{2DB48B6E-D691-4D1D-A9FB-48255C499149}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSOContext.Test", "SSOContext.Test\SSOContext.Test.csproj", "{497D4F98-9FBF-4D9E-A70E-FC49E7FAAE10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSOContext.Test", "SSOContext.Test\SSOContext.Test.csproj", "{497D4F98-9FBF-4D9E-A70E-FC49E7FAAE10}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSO.Domain", "SSO.Domain\SSO.Domain.csproj", "{BDDBF71E-D136-479F-A8BC-946AF2F3613E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSO.ApplicationContext", "SSO.DbContext\SSO.ApplicationContext.csproj", "{6A51DC56-6DBB-417C-BB0C-B3C27D82F365}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSO.Services", "SSO.Services\SSO.Services.csproj", "{BA5F5BD5-D7C7-4E62-901F-40B394D37759}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +51,18 @@ Global
 		{497D4F98-9FBF-4D9E-A70E-FC49E7FAAE10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{497D4F98-9FBF-4D9E-A70E-FC49E7FAAE10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{497D4F98-9FBF-4D9E-A70E-FC49E7FAAE10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDDBF71E-D136-479F-A8BC-946AF2F3613E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDDBF71E-D136-479F-A8BC-946AF2F3613E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDDBF71E-D136-479F-A8BC-946AF2F3613E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDDBF71E-D136-479F-A8BC-946AF2F3613E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A51DC56-6DBB-417C-BB0C-B3C27D82F365}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A51DC56-6DBB-417C-BB0C-B3C27D82F365}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A51DC56-6DBB-417C-BB0C-B3C27D82F365}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A51DC56-6DBB-417C-BB0C-B3C27D82F365}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA5F5BD5-D7C7-4E62-901F-40B394D37759}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA5F5BD5-D7C7-4E62-901F-40B394D37759}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA5F5BD5-D7C7-4E62-901F-40B394D37759}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA5F5BD5-D7C7-4E62-901F-40B394D37759}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
